@@ -36,9 +36,11 @@
 06_Events/**
 !06_Events/**/
 !06_Events/**/.gitkeep
+# Exception: unlike the other content folders, 07_Knowledge/'s topic
+# subfolders are not part of the vault's structural skeleton - only the
+# top-level folder ships with the repo, its subfolders stay purely local.
 07_Knowledge/**
-!07_Knowledge/**/
-!07_Knowledge/**/.gitkeep
+!07_Knowledge/.gitkeep
 08_People/**
 !08_People/**/
 !08_People/**/.gitkeep
