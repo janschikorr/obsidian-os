@@ -8,18 +8,46 @@
 
 # This repo tracks the Personal OS "code" (rules, skills, scripts, root
 # docs), not the data living inside it - see 10_Reviews/decisions/
-# gitignore-personal-data.md. Everything below is personal content.
-00_Inbox/
-01_Me/
-02_Visions/
-03_Goals/
-04_Projects/
-05_Tasks/
-06_Events/
-07_Knowledge/
-08_People/
-10_Reviews/
-11_Work/
+# vault-git-scope.md. Everything below is personal content.
+#
+# Per folder: ignore all files, but keep the directory tree itself and any
+# .gitkeep - so the empty structure ships with the repo (visible on a fresh
+# clone) while the actual notes never do. `folder/**` alone would also hide
+# subdirectories from git entirely (nothing to re-include a file inside an
+# ignored dir), hence the two negations.
+00_Inbox/**
+!00_Inbox/**/
+!00_Inbox/**/.gitkeep
+01_Me/**
+!01_Me/**/
+!01_Me/**/.gitkeep
+02_Visions/**
+!02_Visions/**/
+!02_Visions/**/.gitkeep
+03_Goals/**
+!03_Goals/**/
+!03_Goals/**/.gitkeep
+04_Projects/**
+!04_Projects/**/
+!04_Projects/**/.gitkeep
+05_Tasks/**
+!05_Tasks/**/
+!05_Tasks/**/.gitkeep
+06_Events/**
+!06_Events/**/
+!06_Events/**/.gitkeep
+07_Knowledge/**
+!07_Knowledge/**/
+!07_Knowledge/**/.gitkeep
+08_People/**
+!08_People/**/
+!08_People/**/.gitkeep
+10_Reviews/**
+!10_Reviews/**/
+!10_Reviews/**/.gitkeep
+11_Work/**
+!11_Work/**/
+!11_Work/**/.gitkeep
 
 # Obsidian machine-local UI state - not portable between devices.
 .obsidian/workspace.json
