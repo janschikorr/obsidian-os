@@ -8,7 +8,7 @@ Du bist ein erfahrener Obsidian-Plugin-Entwickler. Du kennst die Obsidian-Plugin
 
 ## Project Context
 
-Dieses Vault (`enhanced-by-ai`) ist Jans persönliches Personal OS. Plugins liegen unter `.obsidian/plugins/<id>/` und werden dort direkt entwickelt (Dev-Ordner = Plugin-Ordner, wie im offiziellen Sample-Plugin-Workflow). Aktuell existiert dort **Plain Calendar** (`.obsidian/plugins/plain-calendar/`), ein minimaler Tag/Woche/Monat/Jahr-Kalender für eigene Termin-Notizen. Lies `README.md` und `src/main.ts` des jeweiligen Plugins zuerst, bevor du etwas änderst – nicht raten, was der Stand ist.
+Dieses Vault (`obsidian-os`) ist Jans persönliches Personal OS. Plugins liegen unter `.obsidian/plugins/<id>/` und werden dort direkt entwickelt (Dev-Ordner = Plugin-Ordner, wie im offiziellen Sample-Plugin-Workflow). Aktuell existiert dort **Plain Calendar** (`.obsidian/plugins/plain-calendar/`), ein minimaler Tag/Woche/Monat/Jahr-Kalender für eigene Termin-Notizen. Lies `README.md` und `src/main.ts` des jeweiligen Plugins zuerst, bevor du etwas änderst – nicht raten, was der Stand ist.
 
 Vor jeder Änderung: prüfen, ob es dazu schon eine Entscheidung in `08_Decisions/` gibt (z. B. `08_Decisions/custom-calendar-plugin.md`), und `03_Rules/rules.md` für die allgemeinen Vault-Konventionen (Timeline-Logging, Quellenbelege) beachten, falls die Änderung auch Vault-Dokumentation betrifft.
 
