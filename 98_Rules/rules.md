@@ -1,0 +1,24 @@
+# Rules – Constitution of this Personal OS
+
+Binding for every agent that reads or changes files in this system.
+
+1. **Read first, then act.** Read the relevant context before every change: `index.md` shows where something lives; then the concretely affected files.
+2. **Only change what is evidenced.** No speculation. If a piece of information is not clearly derived from a source, it is noted under "Missing Context" instead of being invented.
+3. **Every change needs a source.** A reference (file, conversation, date) must show why something now applies.
+4. **Every change is logged.** The timeline of the affected file is appended to, append-only: date, what changed, source. (Exception: events in `06_Events/` and mails in `00_Inbox/mail/` – a context sentence in the body is enough there instead of a timeline, the file's git history documents changes.)
+5. **File types have separate responsibilities:**
+   - Person: who this is, what context (including company affiliation) applies to them, managed via the `plain-contacts` plugin – see `98_Rules/templates/person.md`
+   - Goal (`03_Goals/<slug>.md`): a desired end-state ("something I want"), SMART-formulated – see `98_Rules/templates/goal.md`. A goal describes *why*, not *how*; it does not need an active initiative to exist. One goal, one file – group thematically related goals via the `tags` frontmatter field (e.g. `tags: [gesundheit]`), never by bundling several goals into one note.
+   - Project: what goal, what current state, what dependencies. A project describes *how* – the active initiative/plan, optionally in service of one or more goals (linked via `references`).
+   - Decision: what direction was set and why
+   - Event (calendar note in `06_Events/`): an occurrence on a date, managed via the `plain-calendar` plugin – not a to-do
+   - Task (task note in `05_Tasks/`): a next concrete step with status/priority/due date, managed via the `plain-tasks` plugin – see `98_Rules/templates/task.md`. A task may reference a project *or* a goal (`project:` / `goal:` frontmatter field) – whichever it more directly serves. Prefer a project reference when an active initiative already exists for that task.
+   - Mail (note in `00_Inbox/mail/`): a received, relevant email with context, managed via the `plain-mail` plugin – see `98_Rules/templates/mail.md`, not a task
+   Do not mix these in one file. This also applies to the general context folders `08_People/`, `01_Me/finance/`, `01_Me/health/`: they describe an ongoing state (who someone is, financial/health context), not actionable work. A concrete next step belongs in `05_Tasks/`, a larger initiative with its own goal in `04_Projects/` – both reference the context folder via wikilink instead of the task/project living inside it. Each of the three additionally has an overview project entry (`04_Projects/finance/finance.md`, `04_Projects/health/health.md`, `04_Projects/people/people.md`) that links to the real data folder (`01_Me/finance/`, `01_Me/health/`, `08_People/`) and tracks initiatives within that area. See `[[kontext-ordner-vs-aufgaben-projekte]]`.
+6. **New ideas are not an implementation order.** Collect ideas in the `## Ideen` section of the current day's daily note (`00_Inbox/daily/YYYY-MM-DD.md`). To process them: transfer each idea as its own file to `10_Reviews/ideas/` (see `98_Rules/templates/idea.md`), add a `→ ` wikilink to the new idea file after the original text in the daily note (text bleibt stehen), then set the status to `doing` or `ignoriert` in `10_Reviews/ideas.base`. Only create a task or project after setting status to `doing`.
+7. **No secrets in plain text.** Credentials, passwords, tokens do not belong in this system.
+8. **Manual first, then automate.** Perform new recurring workflows manually first, then describe them as a skill in `.claude/skills/`, only then let them run via automation.
+9. **Check before writing back.** After a change, check: are all links correct? Were all rules followed? Are there contradictions with existing decisions? Run `python 99_Scripts/check_structure.py` to verify this automatically (frontmatter schema, section headers, broken wikilinks, orphaned files).
+10. **Vault has its own version.** `CHANGELOG.md` (root) versions the vault's structure only (folder layout, frontmatter schemas under `98_Rules/templates/`) - never content, independent of the `plain-*` plugin versions. Bump it (`MAJOR.MINOR`, see `10_Reviews/decisions/vault-versioning.md`) only when a change is visible to a `plain-*` plugin: MAJOR if it breaks an existing plugin expectation (renamed/moved folder, renamed/removed frontmatter field), MINOR if it adds structure/a field a plugin can use optionally without breaking existing notes. Note any resulting minimum plugin version in the changelog entry (`- Kompatibilität: <Plugin> >= <Version>`).
+
+Templates for the individual file types live in `98_Rules/templates/`.
