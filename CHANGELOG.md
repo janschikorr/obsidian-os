@@ -2,6 +2,15 @@
 
 Only the structure of this vault is versioned - folder layout and the frontmatter schemas under `98_Rules/templates/` that the `plain-*` plugins read from - not the content itself. Schema (`MAJOR.MINOR`) and when an entry is due: `10_Reviews/decisions/vault-versioning.md`.
 
+## 1.1.0 - 2026-10-23
+
+- Task schema (`98_Rules/templates/task.md`): new optional fields `time` and `end` (`HH:mm`) - time of day on the due date. Read by Plain Tasks (time chip, sorting) and Plain Calendar (timed slot in day/week view). Existing tasks without them are unaffected.
+
+**Compatibility:**
+- `plain-tasks >= 1.11.0` to set/show `time`/`end` on tasks
+- `plain-calendar >= 1.4.0` to place timed tasks in the hour grid
+- `plain-mail >= 1.1.0` for sender linking to `08_People/` (new device-local `peopleFolder` setting, must be set to `08_People`)
+
 ## 1.0.0 - 2026-09-07
 
 First versioned baseline. Structure at the time of this entry:
@@ -20,4 +29,4 @@ First versioned baseline. Structure at the time of this entry:
 ## Missing Context
 
 - No automated check whether an installed plugin version matches the current vault structure (e.g. the broken `goal` field in 1.10.0 would have been caught earlier this way).
-- Plugin folder settings (`data.json`: `eventsFolder`, `tasksFolder`, `projectsFolder`, `folder`, `mailFolder`) are not part of this versioning (device-local, gitignored) - a future folder rename in `index.md` must be manually applied there too. During the last rename (`06_Calendar` → `06_Events`) this was exactly what got missed and was corrected retroactively on 2026-09-07.
+- Plugin folder settings (`data.json`: `eventsFolder`, `tasksFolder`, `projectsFolder`, `folder`, `mailFolder`, `peopleFolder`) are not part of this versioning (device-local, gitignored) - a future folder rename in `index.md` must be manually applied there too. During the last rename (`06_Calendar` → `06_Events`) this was exactly what got missed and was corrected retroactively on 2026-09-07.

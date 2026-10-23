@@ -13,8 +13,10 @@ status: open        # open | in-progress | blocked | done
 priority: normal    # low | normal | high
 scheduled: <YYYY-MM-DD>   # optional: when to start working on it
 due: <YYYY-MM-DD>         # optional: hard deadline – also the anchor for recurrence
+time: <HH:mm>             # optional: time of day on the due date (shown as a chip, timed slot in plain-calendar)
+end: <HH:mm>              # optional: end time, only meaningful together with time
 project: "[[<project>]]"  # optional: reference to 04_Projects/
-goal: "[[<goal>]]"        # optional: reference to 01_Me/goals/ (use instead of project when there's no active initiative yet)
+goal: "[[<goal>]]"        # optional: reference to 03_Goals/ (use instead of project when there's no active initiative yet)
 recurrence: <FREQ=...>    # optional, only allowed when due is set
 dateCreated: <YYYY-MM-DD>
 dateModified: <YYYY-MM-DD>
